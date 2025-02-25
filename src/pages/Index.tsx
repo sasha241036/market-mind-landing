@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Shield, TrendingUp, Zap, Star, DollarSign, MessageSquare } from 'lucide-react';
@@ -232,7 +233,7 @@ const Index = () => {
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center">
-                      <CheckCircle className="w-5 h-5 mr-2 text-green-500" />
+                      <Star className="w-5 h-5 mr-2 text-green-500" />
                       <span>{feature}</span>
                     </li>
                   ))}
