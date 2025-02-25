@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, Star, DollarSign, MessageSquare } from 'lucide-react';
+import { ArrowRight, Shield, TrendingUp, Zap, Star, DollarSign, MessageSquare } from 'lucide-react';
 
 const Index = () => {
   const aiTools = [
@@ -14,9 +13,24 @@ const Index = () => {
   ];
 
   const benefits = [
-    { title: 'Безопасность', description: 'Защита данных на высшем уровне' },
-    { title: 'Продвижение', description: 'Новые возможности для роста' },
-    { title: 'Автоматизация', description: 'Экономия времени и ресурсов' },
+    { 
+      title: 'Безопасность', 
+      description: 'Защита данных на высшем уровне',
+      icon: Shield,
+      gradient: 'from-blue-500 to-blue-600'
+    },
+    { 
+      title: 'Продвижение', 
+      description: 'Новые возможности для роста',
+      icon: TrendingUp,
+      gradient: 'from-purple-500 to-purple-600'
+    },
+    { 
+      title: 'Автоматизация', 
+      description: 'Экономия времени и ресурсов',
+      icon: Zap,
+      gradient: 'from-orange-500 to-orange-600'
+    },
   ];
 
   const testimonials = [
@@ -85,7 +99,7 @@ const Index = () => {
       {/* AI Tools Section */}
       <section className="section-padding bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="heading-lg text-center mb-12">Инструменты ИИ</h2>
+          <h2 className="heading-lg text-center mb-12">Инструменты ��И</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {aiTools.map((tool, index) => (
               <motion.div
@@ -106,19 +120,40 @@ const Index = () => {
       {/* Benefits Section */}
       <section className="section-padding">
         <div className="max-w-6xl mx-auto">
-          <h2 className="heading-lg text-center mb-12">Преимущества</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="heading-lg mb-4">Преимущества</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Откройте новые возможности для вашего бизнеса с инновационными инструментами Market Mind
+            </p>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="relative group"
               >
-                <CheckCircle className="w-12 h-12 mx-auto mb-4 text-black" />
-                <h3 className="heading-md mb-2">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+                <div className="card overflow-hidden">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${benefit.gradient} opacity-5 
+                                 group-hover:opacity-10 transition-opacity duration-300`} />
+                  <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center
+                                 bg-gradient-to-br ${benefit.gradient} text-white`}>
+                    {React.createElement(benefit.icon, { className: "w-8 h-8" })}
+                  </div>
+                  <h3 className="heading-md mb-4">{benefit.title}</h3>
+                  <p className="text-gray-600 text-lg">{benefit.description}</p>
+                  <div className="mt-6 flex items-center text-gray-500 group-hover:text-gray-700 transition-colors">
+                    <span className="mr-2">Узнать больше</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
