@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Shield, TrendingUp, Zap, Star, DollarSign, MessageSquare } from 'lucide-react';
@@ -18,22 +17,19 @@ const Index = () => {
       title: 'Безопасность', 
       description: 'Защита данных на высшем уровне',
       icon: Shield,
-      iconColor: '#F90716',
-      gradient: 'from-[#F90716] to-[#FDE1D3]'
+      color: '#F90716'
     },
     { 
       title: 'Продвижение', 
       description: 'Новые возможности для роста',
       icon: TrendingUp,
-      iconColor: '#FF5403',
-      gradient: 'from-[#FF5403] to-[#FEC6A1]'
+      color: '#FF5403'
     },
     { 
       title: 'Автоматизация', 
       description: 'Экономия времени и ресурсов',
       icon: Zap,
-      iconColor: '#FFCA03',
-      gradient: 'from-[#FFCA03] to-[#FEF7CD]'
+      color: '#FFCA03'
     },
   ];
 
@@ -145,13 +141,10 @@ const Index = () => {
                 className="relative group"
               >
                 <div className="card overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${benefit.gradient} opacity-5 
-                                 group-hover:opacity-10 transition-opacity duration-300`} />
-                  <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center
-                                 bg-gradient-to-br ${benefit.gradient}`}>
+                  <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center bg-gray-50">
                     {React.createElement(benefit.icon, { 
                       className: "w-8 h-8",
-                      style: { color: benefit.iconColor }
+                      style: { color: benefit.color }
                     })}
                   </div>
                   <h3 className="heading-md mb-4">{benefit.title}</h3>
