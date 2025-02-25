@@ -18,19 +18,22 @@ const Index = () => {
       title: 'Безопасность', 
       description: 'Защита данных на высшем уровне',
       icon: Shield,
-      gradient: 'from-blue-500 to-blue-600'
+      iconColor: '#F90716',
+      gradient: 'from-[#F90716] to-[#FDE1D3]'
     },
     { 
       title: 'Продвижение', 
       description: 'Новые возможности для роста',
       icon: TrendingUp,
-      gradient: 'from-purple-500 to-purple-600'
+      iconColor: '#FF5403',
+      gradient: 'from-[#FF5403] to-[#FEC6A1]'
     },
     { 
       title: 'Автоматизация', 
       description: 'Экономия времени и ресурсов',
       icon: Zap,
-      gradient: 'from-orange-500 to-orange-600'
+      iconColor: '#FFCA03',
+      gradient: 'from-[#FFCA03] to-[#FEF7CD]'
     },
   ];
 
@@ -145,8 +148,11 @@ const Index = () => {
                   <div className={`absolute inset-0 bg-gradient-to-br ${benefit.gradient} opacity-5 
                                  group-hover:opacity-10 transition-opacity duration-300`} />
                   <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center
-                                 bg-gradient-to-br ${benefit.gradient} text-white`}>
-                    {React.createElement(benefit.icon, { className: "w-8 h-8" })}
+                                 bg-gradient-to-br ${benefit.gradient}`}>
+                    {React.createElement(benefit.icon, { 
+                      className: "w-8 h-8",
+                      style: { color: benefit.iconColor }
+                    })}
                   </div>
                   <h3 className="heading-md mb-4">{benefit.title}</h3>
                   <p className="text-gray-600 text-lg">{benefit.description}</p>
